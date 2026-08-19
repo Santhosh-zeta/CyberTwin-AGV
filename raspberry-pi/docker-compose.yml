@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mqtt:
+    image: eclipse-mosquitto:2.0
+    container_name: twinware_mqtt
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped
+
+  backend:
+    build: .
+    container_name: twinware_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./database:/app/database
+      - ./twinware_data:/app/data
+    environment:
+      - DB_PATH=sqlite:////app/data/twinware.db
+      - MQTT_BROKER=mqtt
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - mqtt
+    restart: unless-stopped
+
+  bridge:
+    build: .
+    container_name: twinware_bridge
+    volumes:
+      - ./uart:/app/uart
+    environment:
+      - MQTT_BROKER=mqtt
+      - MQTT_PORT=1883
+      # Change this to your actual serial port on the Raspberry Pi
+      - SERIAL_PORT=/dev/ttyUSB0
+      - BAUD_RATE=115200
+    # Note: On the actual Pi, you may need to add devices:
+    # devices:
+    #   - "/dev/ttyUSB0:/dev/ttyUSB0"
+    command: python -m uart.serial_mqtt_bridge
+    depends_on:
+      - mqtt
+    restart: unless-stopped

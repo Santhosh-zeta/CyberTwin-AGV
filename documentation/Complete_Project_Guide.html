@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Complete_Project_Guide</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="twinware-project-execution-team-work-plan">TwinWare: Project
+Execution &amp; Team Work Plan</h1>
+<h2 id="project-at-a-glance">1. PROJECT AT A GLANCE</h2>
+<p><strong>Project Name:</strong> TwinWare <strong>Full Title:</strong>
+Design and Implementation of an Edge-Based Cyber-Physical Digital Twin
+Framework for Autonomous Warehouse AGVs using Raspberry Pi 5 and
+ESP32</p>
+<p><strong>What we are building:</strong> A miniature autonomous
+warehouse system where a physical Automated Guided Vehicle (AGV) is
+mirrored by a live Digital Twin. The system uses an ESP32 for real-time
+motor and sensor control, and a Raspberry Pi 5 as an edge node to
+process telemetry, host the backend, and maintain the Digital Twin
+state.</p>
+<p><strong>Why we are building it:</strong> To demonstrate edge-based
+computation and cyber-physical systems (CPS) in a practical, physical
+format, bridging the gap between low-level embedded hardware and
+high-level digital orchestration.</p>
+<p><strong>Main Technologies:</strong> * <strong>Hardware:</strong>
+ESP32, Raspberry Pi 5, DC Motors with Encoders, Sensors. *
+<strong>Communication:</strong> UART, MQTT. * <strong>Software
+Stack:</strong> C/C++ (ESP32), Python/FastAPI (Edge), SQLite, web-based
+dashboard (HTML/JS/CSS).</p>
+<p><strong>Final Demonstration:</strong> The AGV will complete a
+warehouse mission while dodging an obstacle. A web dashboard will
+simultaneously display the exact digital twin counterpart mirroring the
+AGV’s movements and state in real-time.</p>
+<p><strong>Core Team:</strong> Two students: * Member A (Embedded &amp;
+Robotics Lead) * Member B (Edge, Digital Twin &amp; Software Lead)</p>
+<p><strong>Expected Final Outcome:</strong> A fully functional,
+synchronized physical-to-digital system capable of executing commands
+and displaying low-latency telemetry.</p>
+<hr />
+<h2 id="what-exactly-are-we-building">2. WHAT EXACTLY ARE WE
+BUILDING?</h2>
+<p>We are building a closed-loop Cyber-Physical System where a physical
+robot is continuously synchronized with a virtual model.</p>
+<p><strong>The Complete Flow:</strong></p>
+<pre class="text"><code>Physical AGV
+      ↓
+Sensors + Motors
+      ↓
+ESP32
+      ↓
+UART
+      ↓
+Raspberry Pi 5
+      ↓
+MQTT + Backend + Database
+      ↓
+Digital Twin
+      ↓
+Web Dashboard
+      ↓
+Commands
+      ↓
+Raspberry Pi
+      ↓
+ESP32
+      ↓
+Physical AGV</code></pre>
+<p>The Digital Twin is <strong>NOT merely a dashboard</strong>. It is
+the central digital representation of the current state of the physical
+AGV and its environment. When the physical AGV moves, the twin moves.
+When a command is issued to the twin, it is translated and executed by
+the physical AGV.</p>
+<hr />
+<h2 id="final-demo-what-should-we-be-able-to-show">3. FINAL DEMO — WHAT
+SHOULD WE BE ABLE TO SHOW?</h2>
+<p>This is our <strong>Target Definition of Done</strong>.</p>
+<ol type="1">
+<li>The AGV starts at Station A in the physical arena.</li>
+<li>The Web Dashboard shows the AGV as “Online” at coordinates
+(0,0).</li>
+<li>The Operator creates a mission to move to Station B.</li>
+<li>The mission is sent to the AGV via the backend/MQTT.</li>
+<li>The physical AGV begins moving.</li>
+<li>The physical AGV continuously reports telemetry (speed, encoders,
+orientation).</li>
+<li>The Digital Twin moves simultaneously on the dashboard.</li>
+<li>The dashboard displays live position, speed, battery level, and
+sensor status.</li>
+<li>An obstacle is unexpectedly introduced in front of the physical
+AGV.</li>
+<li>The physical AGV detects it and halts.</li>
+<li>The Digital Twin instantly reflects the “Obstacle Detected”
+status.</li>
+<li>The obstacle is removed, and the mission continues.</li>
+<li>The AGV reaches Station B.</li>
+<li>The mission is marked “Completed” on the dashboard.</li>
+<li>Historical telemetry and latency metrics can be viewed.</li>
+</ol>
+<hr />
+<h2 id="system-architecture">4. SYSTEM ARCHITECTURE</h2>
+<h3 id="physical-layer">Physical Layer</h3>
+<ul>
+<li><strong>Chassis &amp; Locomotion:</strong> Acrylic/3D printed
+chassis, DC geared motors, Wheels, Caster.</li>
+<li><strong>Sensors:</strong> Wheel encoders (for odometry), IMU (for
+heading), Distance sensors (ultrasonic/ToF for obstacles).</li>
+<li><strong>Power:</strong> Li-Po battery pack, Buck converters for Pi
+and ESP32.</li>
+</ul>
+<h3 id="embedded-layer-esp32">Embedded Layer (ESP32)</h3>
+<p><strong>Responsibilities:</strong> * Direct motor control via motor
+driver * PWM generation * Encoder reading via interrupts * Sensor
+reading (IMU, distance) * PID control for straight-line movement *
+Safety stop logic * UART communication with the edge node * Command
+execution</p>
+<h3 id="edge-layer-raspberry-pi-5">Edge Layer (Raspberry Pi 5)</h3>
+<p><strong>Responsibilities:</strong> * UART communication (serial
+read/write) * MQTT Broker/Client * Telemetry processing and aggregation
+* Database hosting (SQLite) * Maintaining the core Digital Twin state *
+High-level navigation computation (waypoints) * Hosting the Backend API
+(FastAPI)</p>
+<h3 id="digital-twin">Digital Twin</h3>
+<p><strong>Responsibilities:</strong> * Maintaining the virtual
+warehouse state * Syncing physical to virtual AGV * Providing live state
+data * Logging historical information * Flagging alerts</p>
+<h3 id="dashboard">Dashboard</h3>
+<p><strong>Responsibilities:</strong> * Live 2D monitoring interface *
+Mission creation and dispatch * Robot status visualization * Analytics
+and Diagnostics</p>
+<hr />
+<h2 id="complete-component-list">5. COMPLETE COMPONENT LIST</h2>
+<h3 id="a.-already-available">A. Already Available</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />ESP32 Development Board</label></li>
+<li><label><input type="checkbox" />Wire jumpers, minor
+electronics</label></li>
+</ul>
+<h3 id="b.-mandatory-components">B. Mandatory Components</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Raspberry Pi 5</label></li>
+<li><label><input type="checkbox" />Raspberry Pi official 27W power
+supply (for development)</label></li>
+<li><label><input type="checkbox" />Active cooling (fan/heatsink) for Pi
+5</label></li>
+<li><label><input type="checkbox" />MicroSD card (32GB+ Class
+10)</label></li>
+<li><label><input type="checkbox" />Robot chassis (2-wheel
+drive)</label></li>
+<li><label><input type="checkbox" />DC geared motors (x2)</label></li>
+<li><label><input type="checkbox" />L298N or TB6612FNG Motor
+driver</label></li>
+<li><label><input type="checkbox" />Wheels (x2)</label></li>
+<li><label><input type="checkbox" />Caster wheel (x1)</label></li>
+<li><label><input type="checkbox" />Wheel encoders (x2)</label></li>
+<li><label><input type="checkbox" />IMU (MPU6050)</label></li>
+<li><label><input type="checkbox" />Ultrasonic (HC-SR04) or ToF
+(VL53L0X) sensors</label></li>
+<li><label><input type="checkbox" />Li-Po Battery (e.g., 3S
+11.1V)</label></li>
+<li><label><input type="checkbox" />Battery voltage monitor</label></li>
+<li><label><input type="checkbox" />LM2596 Buck converter (for 5V
+step-down)</label></li>
+<li><label><input type="checkbox" />Wiring (Jumper wires, thick gauge
+wire for power)</label></li>
+<li><label><input type="checkbox" />Connectors (XT60, header
+pins)</label></li>
+<li><label><input type="checkbox" />Main power switch</label></li>
+<li><label><input type="checkbox" />Emergency stop button</label></li>
+<li><label><input type="checkbox" />Mounting hardware (standoffs,
+screws)</label></li>
+</ul>
+<h3 id="c.-optional-components-do-not-make-mandatory">C. Optional
+Components (DO NOT MAKE MANDATORY)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Raspberry Pi Camera</label></li>
+<li><label><input type="checkbox" />AprilTags for
+localization</label></li>
+<li><label><input type="checkbox" />RFID reader/tags</label></li>
+<li><label><input type="checkbox" />LiDAR</label></li>
+<li><label><input type="checkbox" />Load cell</label></li>
+<li><label><input type="checkbox" />OLED Display</label></li>
+<li><label><input type="checkbox" />Additional sensors (e.g., line
+followers)</label></li>
+</ul>
+<hr />
+<h2 id="component-selection">6. COMPONENT SELECTION</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 35%" />
+<col style="width: 5%" />
+<col style="width: 21%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr>
+<th>Component</th>
+<th>Recommended Choice</th>
+<th>Why</th>
+<th>Alternative</th>
+<th>Mandatory?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Edge Node</strong></td>
+<td>Raspberry Pi 5</td>
+<td>Edge computing power, runs Linux, handles backend + MQTT + database
+easily.</td>
+<td>Raspberry Pi 4</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Controller</strong></td>
+<td>ESP32</td>
+<td>Fast, lots of GPIO, built-in interrupts, real-time response for
+PID.</td>
+<td>Arduino Mega</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Motor Driver</strong></td>
+<td>TB6612FNG</td>
+<td>Smaller, more efficient than L298N, lower voltage drop.</td>
+<td>L298N</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>IMU</strong></td>
+<td>MPU6050</td>
+<td>Cheap, well-documented, sufficient for basic heading.</td>
+<td>BNO085 (expensive)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Distance</strong></td>
+<td>HC-SR04</td>
+<td>Extremely cheap, good enough for a basic stop trigger.</td>
+<td>VL53L0X (ToF)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>SQLite</td>
+<td>Zero-config, lightweight, perfect for this scale.</td>
+<td>InfluxDB</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="hardware-build-plan">7. HARDWARE BUILD PLAN</h2>
+<h3 id="step-1-build-chassis">Step 1: Build Chassis</h3>
+<ul>
+<li><strong>What to do:</strong> Assemble the base plates.</li>
+<li><strong>Required:</strong> Chassis kit, screwdrivers.</li>
+<li><strong>Who:</strong> Both</li>
+<li><strong>Expected Result:</strong> A stable platform to mount
+electronics.</li>
+</ul>
+<h3 id="step-2-mount-motors-encoders">Step 2: Mount Motors &amp;
+Encoders</h3>
+<ul>
+<li><strong>What to do:</strong> Secure DC motors and attach encoder
+disks.</li>
+<li><strong>Required:</strong> Motors, encoders, brackets.</li>
+<li><strong>Who:</strong> Member A</li>
+<li><strong>Expected Result:</strong> Motors are physically attached and
+encoders can rotate.</li>
+</ul>
+<h3 id="step-3-install-wheels-caster">Step 3: Install Wheels &amp;
+Caster</h3>
+<ul>
+<li><strong>What to do:</strong> Attach the main wheels and the
+balancing caster.</li>
+<li><strong>Who:</strong> Member A</li>
+<li><strong>Expected Result:</strong> Chassis can roll smoothly on the
+floor.</li>
+</ul>
+<h3 id="step-4-mount-esp32-motor-driver">Step 4: Mount ESP32 &amp; Motor
+Driver</h3>
+<ul>
+<li><strong>What to do:</strong> Secure the embedded electronics on the
+lower deck.</li>
+<li><strong>Who:</strong> Member A</li>
+<li><strong>Expected Result:</strong> Electronics are secured and won’t
+short circuit on the frame.</li>
+</ul>
+<h3 id="step-5-mount-raspberry-pi">Step 5: Mount Raspberry Pi</h3>
+<ul>
+<li><strong>What to do:</strong> Secure Pi 5 and cooling fan on the
+upper deck.</li>
+<li><strong>Who:</strong> Member B</li>
+<li><strong>Expected Result:</strong> Pi 5 is accessible and
+cooled.</li>
+</ul>
+<h3 id="step-6-mount-sensors">Step 6: Mount Sensors</h3>
+<ul>
+<li><strong>What to do:</strong> Place the distance sensor at the front,
+IMU near the center of rotation.</li>
+<li><strong>Who:</strong> Member A</li>
+<li><strong>Expected Result:</strong> Clear line of sight for distance
+sensor.</li>
+</ul>
+<h3 id="step-7-power-distribution">Step 7: Power Distribution</h3>
+<ul>
+<li><strong>What to do:</strong> Install battery, switch, buck
+converters. Tune buck converter output to EXACTLY 5V before connecting
+to Pi/ESP32.</li>
+<li><strong>Who:</strong> Both</li>
+<li><strong>What can go wrong:</strong> Reversing polarity or sending
+11.1V to the 5V rail will destroy the electronics.</li>
+</ul>
+<h3 id="step-8-complete-power-wiring">Step 8: Complete Power Wiring</h3>
+<ul>
+<li><strong>What to do:</strong> Connect battery -&gt; Switch -&gt; Buck
+Converter -&gt; Pi/ESP32.</li>
+<li><strong>Who:</strong> Both</li>
+<li><strong>Expected Result:</strong> Turn switch on, LEDs on buck
+converter light up.</li>
+</ul>
+<h3 id="step-9-signal-wiring">Step 9: Signal Wiring</h3>
+<ul>
+<li><strong>What to do:</strong> Connect ESP32 to motor driver,
+encoders, IMU, sensors. Connect ESP32 to Pi via UART.</li>
+<li><strong>Who:</strong> Member A</li>
+<li><strong>Expected Result:</strong> All data connections are
+made.</li>
+</ul>
+<h3 id="step-10-perform-power-on-test">Step 10: Perform Power-on
+Test</h3>
+<ul>
+<li><strong>What to do:</strong> Turn on power, verify LEDs, check for
+smoke/heat.</li>
+<li><strong>Who:</strong> Both</li>
+<li><strong>Expected Result:</strong> System boots up without hardware
+failures.</li>
+</ul>
+<hr />
+<h2 id="two-person-work-division">8. TWO-PERSON WORK DIVISION</h2>
+<h3 id="member-a-embedded-robotics-lead">MEMBER A — Embedded &amp;
+Robotics Lead</h3>
+<p><strong>Responsible for:</strong> * ESP32 firmware (C/C++) * Motor
+control &amp; PWM * Encoder reading &amp; interrupts * IMU integration *
+Distance and other sensor readings * PID tuning for straight-line
+movement * UART protocol formatting and transmission * Robot navigation
+(low-level logic) * Hardware integration &amp; physical wiring</p>
+<h3 id="member-b-edge-digital-twin-software-lead">MEMBER B — Edge,
+Digital Twin &amp; Software Lead</h3>
+<p><strong>Responsible for:</strong> * Raspberry Pi 5 Linux OS setup *
+MQTT broker configuration (Mosquitto) * Backend API (FastAPI, Python) *
+Database management (SQLite) * Digital Twin state management logic * Web
+Dashboard development (HTML/JS/CSS) * Telemetry processing and
+aggregation * Data visualization and UI mapping</p>
+<h3 id="shared-responsibilities">Shared Responsibilities</h3>
+<p><strong>Both members jointly handle:</strong> * System architecture
+planning * Hardware integration * End-to-end testing * Debugging
+communication between Edge and Embedded * Documentation * GitHub
+management (code reviews, merges) * Demo preparation * Professor updates
+* Final presentation * Research measurements and performance
+tracking</p>
+<hr />
+<h2 id="responsibility-matrix">9. RESPONSIBILITY MATRIX</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Member A</th>
+<th>Member B</th>
+<th>Shared</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware Procurement</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Phase 0</td>
+</tr>
+<tr>
+<td>Chassis Assembly</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Procurement</td>
+</tr>
+<tr>
+<td>Motor/Power Wiring</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>Assembly</td>
+</tr>
+<tr>
+<td>ESP32 Firmware Base</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>IDE setup</td>
+</tr>
+<tr>
+<td>Encoder Integration</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>Firmware Base</td>
+</tr>
+<tr>
+<td>IMU &amp; Distance</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>Wiring</td>
+</tr>
+<tr>
+<td>PID Control</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>Encoders</td>
+</tr>
+<tr>
+<td>Raspberry Pi Setup</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Pi procured</td>
+</tr>
+<tr>
+<td>MQTT Broker Setup</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Pi Setup</td>
+</tr>
+<tr>
+<td>UART Protocol Spec</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Pi + ESP32</td>
+</tr>
+<tr>
+<td>UART Implement (ESP)</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>Protocol Spec</td>
+</tr>
+<tr>
+<td>UART Implement (Pi)</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Protocol Spec</td>
+</tr>
+<tr>
+<td>Backend &amp; DB</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Pi Setup</td>
+</tr>
+<tr>
+<td>Digital Twin Logic</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Backend</td>
+</tr>
+<tr>
+<td>Navigation Logic</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>PID</td>
+</tr>
+<tr>
+<td>Dashboard UI</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Digital Twin</td>
+</tr>
+<tr>
+<td>Mission Management</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Dashboard UI</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>All Modules</td>
+</tr>
+<tr>
+<td>Testing &amp; Debugging</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Integration</td>
+</tr>
+<tr>
+<td>Presentation/Docs</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Testing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="development-phases">10. DEVELOPMENT PHASES</h2>
+<h3 id="phase-0-planning">PHASE 0 — Planning</h3>
+<ul>
+<li>Finalize architecture and component list.</li>
+<li>Divide responsibilities clearly.</li>
+<li>Create GitHub repository.</li>
+</ul>
+<h3 id="phase-1-hardware-setup">PHASE 1 — Hardware Setup</h3>
+<ul>
+<li>Procure components.</li>
+<li>Build chassis, test motors with 12V direct, test power
+voltages.</li>
+<li>Mount and test all sensors physically.</li>
+</ul>
+<h3 id="phase-2-esp32-firmware">PHASE 2 — ESP32 Firmware</h3>
+<ul>
+<li>Setup GPIO, PWM, and basic motor control.</li>
+<li>Implement encoder reading via hardware interrupts.</li>
+<li>Read IMU and distance sensors.</li>
+<li>Battery monitoring.</li>
+<li>Implement PID loop for speed control.</li>
+<li>Safety stop logic.</li>
+<li>UART base setup.</li>
+</ul>
+<h3 id="phase-3-raspberry-pi-setup">PHASE 3 — Raspberry Pi Setup</h3>
+<ul>
+<li>Install Raspberry Pi OS.</li>
+<li>Setup Python, Git environment.</li>
+<li>Install and test MQTT Broker (Mosquitto).</li>
+<li>Initialize FastAPI project and SQLite database.</li>
+</ul>
+<h3 id="phase-4-communication">PHASE 4 — Communication</h3>
+<ul>
+<li>Define UART protocol (JSON structure).</li>
+<li>Send ESP32 telemetry to Pi, read commands from Pi.</li>
+<li>Define MQTT topics (<code>agv/telemetry</code>,
+<code>agv/commands</code>).</li>
+<li>Implement error handling and heartbeat signals.</li>
+</ul>
+<h3 id="phase-5-robot-navigation">PHASE 5 — Robot Navigation</h3>
+<ul>
+<li>Motor calibration (ticks to meters).</li>
+<li>Encoder-based movement and odometry.</li>
+<li>Basic waypoint navigation (point-to-point).</li>
+<li>Obstacle detection -&gt; automatic stop/recovery.</li>
+</ul>
+<h3 id="phase-6-digital-twin">PHASE 6 — Digital Twin</h3>
+<ul>
+<li>Model the warehouse layout digitally.</li>
+<li>Create virtual AGV state representation.</li>
+<li>Synchronize physical position and status via MQTT.</li>
+<li>Log sensor states and mission status.</li>
+</ul>
+<h3 id="phase-7-dashboard">PHASE 7 — Dashboard</h3>
+<ul>
+<li>Build dashboard overview screen.</li>
+<li>Display AGV details and alerts.</li>
+<li>Implement mission control (Go to Station B).</li>
+<li>View analytics and diagnostics.</li>
+</ul>
+<h3 id="phase-8-full-integration">PHASE 8 — Full Integration</h3>
+<ul>
+<li>Connect everything:
+<ul>
+<li><code>AGV -&gt; ESP32 -&gt; UART -&gt; Raspberry Pi -&gt; MQTT -&gt; Digital Twin -&gt; Dashboard</code></li>
+<li><code>Dashboard -&gt; Backend -&gt; MQTT -&gt; Raspberry Pi -&gt; UART -&gt; ESP32 -&gt; AGV</code></li>
+</ul></li>
+</ul>
+<h3 id="phase-9-testing">PHASE 9 — Testing</h3>
+<ul>
+<li>Test movement accuracy, sensor reliability.</li>
+<li>Test communication robustness.</li>
+<li>Test Navigation, Digital Twin synchronization.</li>
+<li>Test Dashboard UI responsiveness.</li>
+<li>Failure recovery and Emergency stop.</li>
+</ul>
+<h3 id="phase-10-final-demonstration">PHASE 10 — Final
+Demonstration</h3>
+<ul>
+<li>Prepare the complete warehouse demo scenario.</li>
+</ul>
+<hr />
+<h2 id="phase-by-phase-task-checklist">11. PHASE-BY-PHASE TASK
+CHECKLIST</h2>
+<p><em>(Example checklist for Phase 4)</em></p>
+<h3 id="phase-4-communication-1">PHASE 4: Communication</h3>
+<ul>
+<li><strong>Objective:</strong> Establish reliable bi-directional data
+flow between the ESP32 and the Pi.</li>
+<li><strong>Tasks:</strong> Agree on JSON format, implement parsing on
+ESP32, implement reading/writing on Pi via Python, publish to MQTT.</li>
+<li><strong>Member A:</strong> Write <code>send_telemetry()</code> and
+<code>parse_command()</code> over Serial on ESP32.</li>
+<li><strong>Member B:</strong> Write Python scripts
+<code>serial_to_mqtt.py</code> and <code>mqtt_to_serial.py</code>.</li>
+<li><strong>Dependencies:</strong> ESP32 basic code, Pi OS, MQTT
+broker.</li>
+<li><strong>Deliverable:</strong> The Pi prints live sensor data; ESP32
+turns on motors when an MQTT message is published.</li>
+<li><strong>Completion Criteria:</strong> A command sent via MQTT
+physically moves the robot, and telemetry immediately reflects the
+movement.</li>
+<li><strong>GitHub Commit:</strong>
+<code>feature/uart-mqtt-bridge</code></li>
+<li><strong>Report to Professor:</strong> “We have achieved full
+communication from the edge node to the embedded controller and into the
+MQTT broker.”</li>
+</ul>
+<hr />
+<h2 id="week-by-week-plan-16-weeks">12. WEEK-BY-WEEK PLAN (16
+WEEKS)</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Week 1</strong></td>
+<td>Planning + architecture + ordering components</td>
+</tr>
+<tr>
+<td><strong>Week 2</strong></td>
+<td>Hardware Procurement + Chassis Assembly + Power Testing</td>
+</tr>
+<tr>
+<td><strong>Week 3</strong></td>
+<td>ESP32 Basic Motor Control &amp; Sensor Integration</td>
+</tr>
+<tr>
+<td><strong>Week 4</strong></td>
+<td>Encoders + PID tuning</td>
+</tr>
+<tr>
+<td><strong>Week 5</strong></td>
+<td>Raspberry Pi OS + Mosquitto MQTT Setup</td>
+</tr>
+<tr>
+<td><strong>Week 6</strong></td>
+<td>UART Bridge (ESP32 &lt;-&gt; Pi)</td>
+</tr>
+<tr>
+<td><strong>Week 7</strong></td>
+<td>Odometry and Basic Navigation (Dead reckoning)</td>
+</tr>
+<tr>
+<td><strong>Week 8</strong></td>
+<td>Backend API &amp; SQLite Database</td>
+</tr>
+<tr>
+<td><strong>Week 9</strong></td>
+<td>Navigation refinement (waypoint following)</td>
+</tr>
+<tr>
+<td><strong>Week 10</strong></td>
+<td>Digital Twin State Management Logic</td>
+</tr>
+<tr>
+<td><strong>Week 11</strong></td>
+<td>Web Dashboard Interface (2D map)</td>
+</tr>
+<tr>
+<td><strong>Week 12</strong></td>
+<td>Full System Integration</td>
+</tr>
+<tr>
+<td><strong>Week 13</strong></td>
+<td>Testing: Obstacle detection, edge cases</td>
+</tr>
+<tr>
+<td><strong>Week 14</strong></td>
+<td>Optimization and Performance Measurement</td>
+</tr>
+<tr>
+<td><strong>Week 15</strong></td>
+<td>Demo Preparation &amp; Research Measurement extraction</td>
+</tr>
+<tr>
+<td><strong>Week 16</strong></td>
+<td>Final Presentation &amp; Documentation hand-in</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="mvp-vs-advanced-features">13. MVP VS ADVANCED FEATURES</h2>
+<blockquote>
+<p><strong>CRITICAL RULE: Never delay the MVP because an advanced
+feature is incomplete.</strong></p>
+</blockquote>
+<h3 id="mvp-must-work">MVP — MUST WORK</h3>
+<ul>
+<li>AGV physical movement</li>
+<li>ESP32 motor control + encoders</li>
+<li>Basic obstacle detection (stop if blocked)</li>
+<li>UART communication</li>
+<li>Raspberry Pi processing</li>
+<li>MQTT broker functioning</li>
+<li>Basic Digital Twin tracking X, Y, Theta</li>
+<li>Dashboard showing live status</li>
+<li>Mission execution from Dashboard</li>
+<li>Emergency stop mechanism</li>
+</ul>
+<h3 id="level-2-should-have">LEVEL 2 — SHOULD HAVE</h3>
+<ul>
+<li>Better localization and Odometry tuning</li>
+<li>PID parameter optimization</li>
+<li>Historical data charts on Dashboard</li>
+<li>Analytics and latency measurement logs</li>
+<li>Better Digital Twin 2D visualization</li>
+</ul>
+<h3 id="level-3-optional-future-work">LEVEL 3 — OPTIONAL / FUTURE
+WORK</h3>
+<ul>
+<li>LiDAR / SLAM integration</li>
+<li>Computer vision / AprilTags</li>
+<li>Predictive maintenance AI</li>
+<li>3D Cloud Digital Twin</li>
+<li>ROS2 integration</li>
+<li>Fleet management (Multi-AGV)</li>
+</ul>
+<hr />
+<h2 id="software-stack">14. SOFTWARE STACK</h2>
+<h3 id="esp32">ESP32</h3>
+<ul>
+<li><strong>Language:</strong> C/C++</li>
+<li><strong>Framework:</strong> Arduino Framework or ESP-IDF</li>
+</ul>
+<h3 id="edge-raspberry-pi-5">Edge (Raspberry Pi 5)</h3>
+<ul>
+<li><strong>OS:</strong> Raspberry Pi OS</li>
+<li><strong>Language:</strong> Python 3</li>
+<li><strong>Communication:</strong> <code>pyserial</code>, Eclipse
+Mosquitto (MQTT)</li>
+</ul>
+<h3 id="backend">Backend</h3>
+<ul>
+<li><strong>Framework:</strong> FastAPI (Python) - lightweight and fast
+API handling.</li>
+</ul>
+<h3 id="database">Database</h3>
+<ul>
+<li><strong>Primary:</strong> SQLite - Native, file-based, perfect for
+telemetry storage at this scale. No extra background services
+needed.</li>
+<li><strong>Alternative:</strong> InfluxDB ONLY if time-series analytics
+is strictly required for advanced features.</li>
+</ul>
+<h3 id="dashboard-1">Dashboard</h3>
+<ul>
+<li><strong>Frontend:</strong> Vanilla HTML/JS/CSS or a very simple
+Vue.js setup. Do not over-engineer with React/Webpack for the initial
+version.</li>
+<li><strong>Visualization:</strong> 2D Canvas API or SVG for the Digital
+Twin map. Do not use 3D (Three.js/Unity) until MVP is fully
+complete.</li>
+</ul>
+<hr />
+<h2 id="data-flow">15. DATA FLOW</h2>
+<p><strong>Telemetry Flow (Upward):</strong></p>
+<pre class="text"><code>Encoder / IMU / Distance / Battery
+      ↓
+    ESP32
+      ↓
+    UART
+      ↓
+Raspberry Pi (Python Worker)
+      ↓
+    MQTT (topic: agv/telemetry)
+      ↓
+Telemetry Processor (FastAPI)
+      ↓
+Database + Digital Twin State
+      ↓
+Dashboard (via WebSocket/Polling)</code></pre>
+<p><strong>Command Flow (Downward):</strong></p>
+<pre class="text"><code>Dashboard (User issues Mission)
+     ↓
+FastAPI Backend
+     ↓
+MQTT (topic: agv/commands)
+     ↓
+Raspberry Pi (Python Worker)
+     ↓
+    UART
+     ↓
+    ESP32
+     ↓
+Motor Controller Logic</code></pre>
+<hr />
+<h2 id="basic-data-format">16. BASIC DATA FORMAT</h2>
+<p>Keep JSON structures simple and flat.</p>
+<p><strong>Telemetry JSON (ESP32 -&gt; Pi):</strong></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;agv_id&quot;</span><span class="fu">:</span> <span class="st">&quot;AGV01&quot;</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;timestamp&quot;</span><span class="fu">:</span> <span class="dv">1690000000</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;x&quot;</span><span class="fu">:</span> <span class="fl">1.25</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;y&quot;</span><span class="fu">:</span> <span class="fl">2.50</span><span class="fu">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;theta&quot;</span><span class="fu">:</span> <span class="fl">90.0</span><span class="fu">,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;speed&quot;</span><span class="fu">:</span> <span class="fl">0.4</span><span class="fu">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;left_rpm&quot;</span><span class="fu">:</span> <span class="dv">60</span><span class="fu">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;right_rpm&quot;</span><span class="fu">:</span> <span class="dv">60</span><span class="fu">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;battery&quot;</span><span class="fu">:</span> <span class="fl">11.4</span><span class="fu">,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;obstacle&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>Command JSON (Pi -&gt; ESP32):</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;MOVE&quot;</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;linear_velocity&quot;</span><span class="fu">:</span> <span class="fl">0.2</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;angular_velocity&quot;</span><span class="fu">:</span> <span class="fl">0.0</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<hr />
+<h2 id="github-structure">17. GITHUB STRUCTURE</h2>
+<p>Keep the repository logically separated for both team members.</p>
+<pre class="text"><code>TwinWare/
+│
+├── firmware/
+│   └── esp32/                 # C++ code, PlatformIO/Arduino files
+│
+├── raspberry-pi/
+│   ├── uart/                  # pyserial &lt;-&gt; MQTT bridging scripts
+│   ├── mqtt/                  # MQTT configuration files
+│   ├── navigation/            # High level waypoint generation
+│   ├── digital-twin/          # Core twin logic, state syncing
+│   ├── backend/               # FastAPI server
+│   └── database/              # SQLite setup and models
+│
+├── dashboard/                 # HTML, JS, CSS frontend files
+│
+├── hardware/
+│   ├── wiring/                # Wiring diagrams
+│   ├── schematics/            # Pinouts
+│   └── bom/                   # Bill of Materials
+│
+├── tests/                     # Unit testing scripts
+│
+├── docs/                      # Weekly reports, this document
+│
+└── README.md</code></pre>
+<hr />
+<h2 id="git-workflow-for-two-people">18. GIT WORKFLOW FOR TWO
+PEOPLE</h2>
+<ul>
+<li><strong><code>main</code> branch:</strong> ALWAYS contains working,
+testable code. Never push broken code here.</li>
+<li><strong><code>develop</code> branch:</strong> Integration branch for
+testing components together.</li>
+<li><strong>Feature Branches:</strong> Use descriptive names.
+<ul>
+<li>e.g., <code>feature/esp32-motor-control</code></li>
+<li>e.g., <code>feature/uart</code></li>
+<li>e.g., <code>feature/digital-twin</code></li>
+</ul></li>
+</ul>
+<p><strong>Rules:</strong> 1. Work on your respective feature branch. 2.
+Create Pull Requests into <code>develop</code>. 3. Review together to
+avoid overwriting each other’s work. 4. Merge <code>develop</code> to
+<code>main</code> when a milestone is reached.</p>
+<hr />
+<h2 id="daily-weekly-reporting-system">19. DAILY / WEEKLY REPORTING
+SYSTEM</h2>
+<p>Do not create complicated project-management bureaucracy. Keep it
+simple.</p>
+<p><strong>Daily Log (On Discord/Notes):</strong> * <strong>Today I
+worked on:</strong> * <strong>Completed:</strong> *
+<strong>Problems:</strong> * <strong>Next task:</strong> *
+<strong>Commit/PR:</strong></p>
+<p><strong>Weekly Report:</strong> * <strong>Week:</strong> # *
+<strong>Completed work:</strong> * <strong>Pending work:</strong> *
+<strong>Problems / Hardware / Software issues:</strong> * <strong>Next
+week’s goal:</strong> * <strong>Integration status:</strong> *
+<strong>Demo status:</strong></p>
+<hr />
+<h2 id="professor-reporting-format">20. PROFESSOR REPORTING FORMAT</h2>
+<p>Keep it to a quick update, covering these 6 points:</p>
+<ol type="1">
+<li><strong>What we planned:</strong></li>
+<li><strong>What we completed:</strong></li>
+<li><strong>What is currently working:</strong></li>
+<li><strong>What is blocked:</strong></li>
+<li><strong>What we will do next:</strong></li>
+<li><strong>What we need from the professor:</strong></li>
+</ol>
+<p><em>During major milestones, physically demonstrate what is
+working.</em></p>
+<hr />
+<h2 id="integration-milestones">21. INTEGRATION MILESTONES</h2>
+<ul>
+<li><strong>MILESTONE 1:</strong> ESP32 controls motors
+successfully.</li>
+<li><strong>MILESTONE 2:</strong> ESP32 reads sensors accurately.</li>
+<li><strong>MILESTONE 3:</strong> ESP32 ↔︎ Raspberry Pi UART
+communication works.</li>
+<li><strong>MILESTONE 4:</strong> MQTT telemetry publishing and
+subscribing works.</li>
+<li><strong>MILESTONE 5:</strong> AGV performs basic physical
+navigation.</li>
+<li><strong>MILESTONE 6:</strong> Digital Twin Backend accurately tracks
+AGV state.</li>
+<li><strong>MILESTONE 7:</strong> Dashboard controls and monitors the
+AGV in real-time.</li>
+<li><strong>MILESTONE 8:</strong> Complete warehouse mission runs
+successfully end-to-end.</li>
+<li><strong>MILESTONE 9:</strong> Final testing and performance
+measurements recorded.</li>
+</ul>
+<hr />
+<h2 id="testing-keep-it-practical">22. TESTING — KEEP IT PRACTICAL</h2>
+<p><strong>Hardware:</strong> * <strong>Motor test:</strong> Hook motors
+directly to verify they work. * <strong>Sensor test:</strong> Wave hand,
+verify readings in serial monitor. * <strong>Power test:</strong> Check
+voltages with multimeter. * <strong>Encoder test:</strong> Verify tick
+counts when spinning wheels manually.</p>
+<p><strong>Firmware:</strong> * <strong>PWM:</strong> Sweep values. *
+<strong>PID:</strong> Test response to disturbances. *
+<strong>UART:</strong> Send strings, verify reception. *
+<strong>Safety:</strong> Test emergency stop reaction time.</p>
+<p><strong>Communication:</strong> * <strong>Telemetry:</strong> Verify
+correct JSON format reaches MQTT. * <strong>Commands:</strong> Verify
+correct commands reach ESP32. * <strong>Disconnect/reconnect:</strong>
+Unplug UART, ensure safe shutdown.</p>
+<p><strong>Navigation:</strong> * <strong>Straight movement:</strong>
+Command 1 meter, measure error. * <strong>Turning:</strong> Command 90
+degrees, measure error. * <strong>Obstacle:</strong> Place object,
+ensure stop.</p>
+<p><strong>Digital Twin &amp; Dashboard:</strong> * <strong>Position
+synchronization:</strong> Verify digital movement matches physical. *
+<strong>State synchronization:</strong> Verify battery/sensor data
+updates. * <strong>Command synchronization:</strong> Verify UI buttons
+trigger actions. * <strong>Mission / Alerts:</strong> Test complete flow
+from UI.</p>
+<p><strong>End-to-End:</strong> * <strong>Complete warehouse mission
+test.</strong></p>
+<hr />
+<h2 id="research-performance-metrics">23. RESEARCH / PERFORMANCE
+METRICS</h2>
+<p>Only measure what is genuinely useful. Do NOT invent results.</p>
+<ol type="1">
+<li><strong>Digital Twin synchronization latency:</strong> (Time from
+physical move to UI update).</li>
+<li><strong>Command latency:</strong> (Time from UI click to physical
+movement).</li>
+<li><strong>Localization error:</strong> (Difference between Digital X,Y
+and physical tape-measured X,Y).</li>
+<li><strong>Obstacle response time:</strong> (Time from detection to
+full motor stop).</li>
+<li><strong>MQTT packet loss:</strong> (Messages dropped per hour).</li>
+<li><strong>AGV mission success rate:</strong> (% of missions completed
+without manual intervention).</li>
+<li><strong>Raspberry Pi CPU/memory usage:</strong> (Resource
+consumption during full operation).</li>
+</ol>
+<hr />
+<h2 id="common-failure-scenarios">24. COMMON FAILURE SCENARIOS</h2>
+<p><strong>Problem: AGV does not move</strong> * Check: Battery charge,
+motor driver power, PWM output from ESP32, physical wiring.</p>
+<p><strong>Problem: Encoder readings incorrect</strong> * Check: GPIO
+pin assignment, interrupt setup, encoder wiring, CPR configuration.</p>
+<p><strong>Problem: Raspberry Pi doesn’t receive telemetry</strong> *
+Check: UART TX/RX swapped, baud rate mismatch, serial device permissions
+(<code>/dev/ttyS0</code>), ESP32 actually sending data.</p>
+<p><strong>Problem: MQTT doesn’t update</strong> * Check: Mosquitto
+broker running, correct topic, subscriber connected, network issues.</p>
+<p><strong>Problem: Digital Twin is out of sync</strong> * Check:
+Timestamp discrepancies, MQTT delays, telemetry processor lag, state
+update logic in backend.</p>
+<hr />
+<h2 id="final-definition-of-done">25. FINAL DEFINITION OF DONE</h2>
+<p>The project is considered complete only when:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />Physical AGV operates</label></li>
+<li><label><input type="checkbox" />Motors are controlled by
+ESP32</label></li>
+<li><label><input type="checkbox" />Encoders work</label></li>
+<li><label><input type="checkbox" />Sensors work</label></li>
+<li><label><input type="checkbox" />Obstacle detection
+works</label></li>
+<li><label><input type="checkbox" />ESP32 ↔︎ Raspberry Pi communication
+works</label></li>
+<li><label><input type="checkbox" />MQTT works</label></li>
+<li><label><input type="checkbox" />Raspberry Pi processes
+telemetry</label></li>
+<li><label><input type="checkbox" />Digital Twin updates from physical
+AGV</label></li>
+<li><label><input type="checkbox" />Dashboard displays live
+state</label></li>
+<li><label><input type="checkbox" />Dashboard can issue at least basic
+commands</label></li>
+<li><label><input type="checkbox" />AGV completes a predefined
+mission</label></li>
+<li><label><input type="checkbox" />Emergency stop works</label></li>
+<li><label><input type="checkbox" />Data is logged</label></li>
+<li><label><input type="checkbox" />Performance metrics are
+measured</label></li>
+<li><label><input type="checkbox" />Complete demonstration
+works</label></li>
+</ul>
+<hr />
+<h2 id="what-not-to-build">26. WHAT NOT TO BUILD</h2>
+<p>Explicitly do <strong>NOT</strong> waste time on: * Multi-AGV fleet
+management * Full industrial warehouse simulation * Cloud deployment
+(Keep it local to the Pi) * Complex 3D graphics * Advanced AI / Computer
+Vision * SLAM (Simultaneous Localization and Mapping) before basic
+navigation works * ROS2 (unless strictly required by the professor) *
+Over-engineered authentication systems * Excessive dashboard features *
+Any feature that does not contribute to the core Digital Twin
+objective</p>
+<hr />
+<h2 id="final-project-roadmap-one-page">27. FINAL PROJECT ROADMAP — ONE
+PAGE</h2>
+<pre class="text"><code>       PLANNING &amp; ARCHITECTURE
+                 ↓
+         BUY COMPONENTS
+                 ↓
+     BUILD AGV CHASSIS &amp; WIRING
+                 ↓
+     ESP32: SENSORS + MOTORS + PID
+                 ↓
+     PI: UART + MQTT SETUP
+                 ↓
+     COMMUNICATION BRIDGE
+                 ↓
+     NAVIGATION &amp; ODOMETRY
+                 ↓
+     BACKEND &amp; DIGITAL TWIN LOGIC
+                 ↓
+         WEB DASHBOARD
+                 ↓
+       FULL SYSTEM INTEGRATION
+                 ↓
+       TESTING &amp; METRICS LOGGING
+                 ↓
+     FINAL DEMO &amp; PRESENTATION</code></pre>
+<h1 id="development-and-deployment-guide">Development and Deployment
+Guide</h1>
+<p>This guide outlines our exact workflow. We will complete
+<strong>Phase 1</strong> entirely on your local laptop using simulation
+tools. Only when everything is working perfectly will we proceed to
+<strong>Phase 2</strong> (the physical Raspberry Pi).</p>
+<hr />
+<h2 id="phase-1-local-development-laptop">Phase 1: Local Development
+(Laptop)</h2>
+<p><em>Goal: Build and test the complete software ecosystem (Backend,
+Frontend, and Embedded stubs) locally before touching the
+hardware.</em></p>
+<h3 id="completed-so-far">✅ Completed So Far</h3>
+<ul>
+<li>Scaffolded the Edge Node backend
+(<code>raspberry-pi/backend</code>).</li>
+<li>Created the UART-to-MQTT python bridge with a built-in
+<strong>simulation mode</strong> (<code>raspberry-pi/uart</code>).</li>
+<li>Containerized the entire edge stack using Docker and Docker
+Compose.</li>
+</ul>
+<h3 id="exact-next-steps-to-do-now">⏳ Exact Next Steps (To Do Now)</h3>
+<p>We will execute these steps one by one on your laptop:</p>
+<ol type="1">
+<li><strong>Build the Web Dashboard (Frontend)</strong>
+<ul>
+<li>Create a <code>dashboard/</code> folder.</li>
+<li>Build the HTML/JS/CSS interface to display the AGV’s live position
+(Digital Twin), battery status, and provide a control panel for
+missions.</li>
+</ul></li>
+<li><strong>Enhance the FastAPI Backend</strong>
+<ul>
+<li>Add <strong>WebSocket</strong> support to
+<code>backend/main.py</code>. The dashboard needs WebSockets to receive
+instant telemetry updates without constantly refreshing the page.</li>
+</ul></li>
+<li><strong>Scaffold the ESP32 Firmware</strong>
+<ul>
+<li>Create a <code>firmware/esp32/</code> folder.</li>
+<li>Set up the basic C++ files (PlatformIO/Arduino) that will later be
+uploaded to the ESP32 to handle motors, encoders, and UART
+communication.</li>
+</ul></li>
+<li><strong>Local End-to-End Simulation Testing</strong>
+<ul>
+<li>Run <code>docker compose up -d</code> on your laptop.</li>
+<li>The simulation mode will generate fake AGV telemetry.</li>
+<li>We will open the Dashboard in your laptop’s browser and ensure the
+Digital Twin moves based on the simulated data.</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="phase-2-raspberry-pi-deployment">Phase 2: Raspberry Pi
+Deployment</h2>
+<p><em>Goal: Move the completed, tested software onto the physical
+hardware.</em></p>
+<p>Once Phase 1 is fully tested, follow these exact steps to deploy to
+the Raspberry Pi:</p>
+<h3 id="step-1-prepare-the-pi">Step 1: Prepare the Pi</h3>
+<ol type="1">
+<li><p>Flash <strong>Ubuntu Server OS</strong> onto the Raspberry Pi’s
+SD card.</p></li>
+<li><p>Connect the Pi to your Wi-Fi network.</p></li>
+<li><p>From your laptop, <strong>SSH</strong> into the Pi:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> username@<span class="op">&lt;</span>raspberry-pi-ip<span class="op">&gt;</span></span></code></pre></div></li>
+<li><p>Install Docker on the Pi:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://get.docker.com <span class="at">-o</span> get-docker.sh</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sh get-docker.sh</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-aG</span> docker <span class="va">$USER</span></span></code></pre></div>
+<p><em>(Log out and log back in for docker permissions to
+apply).</em></p></li>
+</ol>
+<h3 id="step-2-transfer-the-code">Step 2: Transfer the Code</h3>
+<p>You can use <code>scp</code> (Secure Copy) to send the required
+folders from your laptop to the Pi, or push everything to GitHub and
+clone it on the Pi.</p>
+<p>Using <code>scp</code> from your laptop terminal:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-r</span> <span class="st">&quot;c:\Users\santh\OneDrive - vit.ac.in\Desktop\XXX\CyberTwin-AGV\raspberry-pi&quot;</span> username@<span class="op">&lt;</span>raspberry-pi-ip<span class="op">&gt;</span>:~/</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-r</span> <span class="st">&quot;c:\Users\santh\OneDrive - vit.ac.in\Desktop\XXX\CyberTwin-AGV\dashboard&quot;</span> username@<span class="op">&lt;</span>raspberry-pi-ip<span class="op">&gt;</span>:~/</span></code></pre></div>
+<h3 id="step-3-connect-hardware-run">Step 3: Connect Hardware &amp;
+Run</h3>
+<ol type="1">
+<li><p>SSH into the Pi again.</p></li>
+<li><p>Plug the ESP32 into the Pi via USB.</p></li>
+<li><p>Check what port the ESP32 was assigned:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /dev/ttyUSB<span class="pp">*</span></span></code></pre></div>
+<p><em>(If it says <code>/dev/ttyACM0</code> instead, update the
+<code>SERIAL_PORT</code> variable inside your
+<code>docker-compose.yml</code> file).</em></p></li>
+<li><p>Navigate into the folder:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/raspberry-pi</span></code></pre></div></li>
+<li><p>Start the edge servers:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose up <span class="at">-d</span> <span class="at">--build</span></span></code></pre></div></li>
+<li><p><strong>Success!</strong> You can now open a browser on your
+laptop and go to <code>http://&lt;raspberry-pi-ip&gt;:8000</code> to see
+the live Digital Twin communicating with the physical robot! # Project
+Status &amp; Hardware Deployment Guide</p></li>
+</ol>
+<h2 id="what-has-been-completed-phase-1">✅ What Has Been Completed
+(Phase 1)</h2>
+<p>We have successfully completed all local software scaffolding and
+simulation setup for the CyberTwin-AGV project. Here is the current
+state of the repository:</p>
+<ol type="1">
+<li><strong>Edge Backend Server
+(<code>raspberry-pi/backend/</code>)</strong>
+<ul>
+<li>Built a FastAPI server to manage the Digital Twin state.</li>
+<li>Connected an SQLite database with SQLAlchemy to store telemetry
+records.</li>
+<li>Integrated WebSockets and a background MQTT client
+(<code>paho-mqtt</code>) to broadcast real-time telemetry instantly
+without page reloads.</li>
+<li>Configured FastAPI to serve the Frontend Dashboard directly, so
+everything runs from a single port (8000).</li>
+</ul></li>
+<li><strong>MQTT Broker &amp; Bridge (<code>raspberry-pi/uart/</code>
+&amp; <code>mqtt/</code>)</strong>
+<ul>
+<li>Added an Eclipse Mosquitto MQTT broker to the stack.</li>
+<li>Developed <code>serial_mqtt_bridge.py</code>: a Python script that
+bridges the physical UART connection (to the ESP32) to the MQTT broker.
+It includes a built-in simulation mode that generates mock odometry data
+when the serial port isn’t available.</li>
+</ul></li>
+<li><strong>Digital Twin Web Dashboard
+(<code>dashboard/</code>)</strong>
+<ul>
+<li>Designed a premium, glassmorphism-style UI using pure
+HTML/JS/CSS.</li>
+<li>Features real-time telemetry gauges (Battery, Speed,
+Obstacles).</li>
+<li>Features a live 2D HTML5 <code>&lt;canvas&gt;</code> rendering of
+the AGV’s exact position and orientation based on live data.</li>
+<li>Features a control pad that sends REST API commands to the backend,
+which are then pushed via MQTT down to the firmware.</li>
+</ul></li>
+<li><strong>ESP32 Firmware Scaffold
+(<code>firmware/esp32/</code>)</strong>
+<ul>
+<li>Set up a standard PlatformIO project.</li>
+<li>Wrote <code>main.cpp</code> with UART initialization (115200
+baud).</li>
+<li>Implemented JSON parsing (via <code>ArduinoJson</code>) to read
+incoming target velocities, and JSON serialization to transmit
+odometry/telemetry back to the Pi.</li>
+<li>Implemented a temporary simulation physics loop on the ESP32 so it
+can be tested independently of physical motors.</li>
+</ul></li>
+<li><strong>Dockerization (<code>raspberry-pi/</code>)</strong>
+<ul>
+<li>Created a complete <code>docker-compose.yml</code> and
+<code>Dockerfile</code> that packages the backend, the bridge, the MQTT
+broker, and mounts the dashboard into a unified, reproducible
+stack.</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="exact-next-steps-phase-2-hardware-deployment">🚀 Exact Next
+Steps: Phase 2 (Hardware Deployment)</h2>
+<p>You are now ready to deploy this software stack onto your physical
+hardware. Follow these exact steps:</p>
+<h3 id="step-1-flash-the-esp32-firmware">Step 1: Flash the ESP32
+Firmware</h3>
+<ol type="1">
+<li>Open the <code>firmware/esp32/</code> folder in Visual Studio Code
+(ensure you have the <strong>PlatformIO</strong> extension
+installed).</li>
+<li>Connect your ESP32 to your laptop via USB.</li>
+<li>Click the PlatformIO “Upload” button (the right-arrow icon in the
+bottom taskbar). This will compile the C++ code and flash it to the
+microcontroller.</li>
+<li><em>Note: For the real physical robot, you will eventually replace
+the simulation logic in <code>main.cpp</code> with actual PWM
+<code>analogWrite()</code> commands to your motor drivers and interrupts
+for your encoders.</em></li>
+</ol>
+<h3 id="step-2-prepare-the-raspberry-pi">Step 2: Prepare the Raspberry
+Pi</h3>
+<ol type="1">
+<li><p>Ensure the Raspberry Pi is running Ubuntu Server or Raspberry Pi
+OS and is connected to your Wi-Fi network.</p></li>
+<li><p>SSH into your Raspberry Pi from your laptop:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>@<span class="op">&lt;</span>raspberry-pi-ip<span class="op">&gt;</span></span></code></pre></div></li>
+<li><p>Install Docker on the Pi (if not already installed):</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://get.docker.com <span class="at">-o</span> get-docker.sh</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sh get-docker.sh</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-aG</span> docker <span class="va">$USER</span></span></code></pre></div>
+<p><em>(Log out and log back in for docker permissions to
+apply).</em></p></li>
+</ol>
+<h3 id="step-3-transfer-the-code-to-the-pi">Step 3: Transfer the Code to
+the Pi</h3>
+<p>Since we need the <code>raspberry-pi</code> folder and the
+<code>dashboard</code> folder, transfer them using Secure Copy
+(<code>scp</code>) from your laptop’s terminal:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-r</span> <span class="st">&quot;c:\Users\santh\OneDrive - vit.ac.in\Desktop\XXX\CyberTwin-AGV\raspberry-pi&quot;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>@<span class="op">&lt;</span>raspberry-pi-ip<span class="op">&gt;</span>:~/</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-r</span> <span class="st">&quot;c:\Users\santh\OneDrive - vit.ac.in\Desktop\XXX\CyberTwin-AGV\dashboard&quot;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>@<span class="op">&lt;</span>raspberry-pi-ip<span class="op">&gt;</span>:~/</span></code></pre></div>
+<p><em>(Alternatively, push the code to a GitHub repository and
+<code>git clone</code> it on the Pi).</em></p>
+<h3 id="step-4-hardware-connections">Step 4: Hardware Connections</h3>
+<ol type="1">
+<li><p>Plug the flashed ESP32 into the Raspberry Pi using a USB
+cable.</p></li>
+<li><p>On the Pi (via SSH), check which serial port was assigned:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /dev/ttyUSB<span class="pp">*</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /dev/ttyACM<span class="pp">*</span></span></code></pre></div></li>
+<li><p>Open <code>~/raspberry-pi/docker-compose.yml</code> on the Pi
+(using <code>nano</code> or <code>vim</code>).</p></li>
+<li><p>Update the <code>SERIAL_PORT</code> environment variable under
+the <code>bridge</code> service to match the port you found (e.g.,
+<code>/dev/ttyUSB0</code>).</p></li>
+<li><p>Also, ensure the <code>devices</code> mapping in
+<code>docker-compose.yml</code> is uncommented and points to the correct
+port so the Docker container can access the physical USB port.</p></li>
+</ol>
+<h3 id="step-5-launch-the-stack-on-the-pi">Step 5: Launch the Stack on
+the Pi</h3>
+<ol type="1">
+<li><p>On the Pi (via SSH), navigate to the folder:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/raspberry-pi</span></code></pre></div></li>
+<li><p>Build and start the edge servers:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose up <span class="at">-d</span> <span class="at">--build</span></span></code></pre></div></li>
+<li><p><strong>Verify</strong>: Open a web browser on your laptop and go
+to:</p>
+<pre class="text"><code>http://&lt;raspberry-pi-ip&gt;:8000</code></pre>
+<p>You should see the Digital Twin Dashboard. Use the D-Pad to send
+commands—these will travel via WebSockets -&gt; FastAPI -&gt; MQTT -&gt;
+UART Bridge -&gt; ESP32!</p></li>
+</ol>
+</body>
+</html>

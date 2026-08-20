@@ -20,6 +20,7 @@ services:
       - ./backend:/app/backend
       - ./database:/app/database
       - ./twinware_data:/app/data
+      - ../dashboard:/app/dashboard
     environment:
       - DB_PATH=sqlite:////app/data/twinware.db
       - MQTT_BROKER=mqtt

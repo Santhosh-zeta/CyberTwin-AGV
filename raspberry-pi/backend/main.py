@@ -189,7 +189,19 @@ def send_command(cmd: CommandRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-DASHBOARD_DIR = os.getenv("DASHBOARD_DIR", "/app/dashboard" if os.path.exists("/app/dashboard") else "../dashboard")
+dashboard_dist_app = "/app/dashboard/dist"
+dashboard_dist_local = "../dashboard/dist"
+
+if "DASHBOARD_DIR" in os.environ:
+    DASHBOARD_DIR = os.environ["DASHBOARD_DIR"]
+elif os.path.exists(dashboard_dist_app):
+    DASHBOARD_DIR = dashboard_dist_app
+elif os.path.exists(dashboard_dist_local):
+    DASHBOARD_DIR = dashboard_dist_local
+elif os.path.exists("/app/dashboard"):
+    DASHBOARD_DIR = "/app/dashboard"
+else:
+    DASHBOARD_DIR = "../dashboard"
 
 if os.path.exists(DASHBOARD_DIR):
     app.mount("/", StaticFiles(directory=DASHBOARD_DIR, html=True), name="dashboard")
@@ -197,3 +209,4 @@ else:
     @app.get("/")
     def read_root():
         return {"status": "online", "system": "TwinWare Digital Twin API", "warning": "Dashboard not found"}
+

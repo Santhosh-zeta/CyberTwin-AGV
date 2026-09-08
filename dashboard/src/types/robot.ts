@@ -7,6 +7,10 @@ export interface HcSr04Data {
   minCm: number;
   maxCm: number;
   status: 'normal' | 'warning' | 'critical';
+  frontM: number;
+  leftM: number;
+  rightM: number;
+  rearM: number;
 }
 
 export interface LidarPoint {
@@ -92,6 +96,90 @@ export interface SystemEventLog {
   source: 'ESP32' | 'RPi5' | 'LiDAR' | 'IMU' | 'INA219' | 'SYSTEM' | 'CONTROL';
 }
 
+// --- WAREHOUSE DIGITAL TWIN DOMAIN MODELS ---
+
+export interface WarehouseRack {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  shelvesCount: number;
+  boxes: Array<{ id: string; shelfIndex: number; color?: string }>;
+}
+
+export interface WarehouseLocation {
+  id: string;
+  code: string; // e.g. A3, B1, P1, D1
+  label: string;
+  x: number;
+  y: number;
+  type: 'pick' | 'drop' | 'dock' | 'storage';
+}
+
+export interface WarehouseObstacle {
+  id: string;
+  x: number;
+  y: number;
+  radius: number;
+  label: string;
+  isTemporary?: boolean;
+}
+
+export interface WarehouseTask {
+  id: string;
+  taskCode: string; // e.g. #T-004
+  action: string; // e.g. Pick and Place
+  pickLoc: string; // e.g. A3
+  dropLoc: string; // e.g. B1
+  boxId: string; // e.g. BX-1024
+  priority: 'Low' | 'Normal' | 'High';
+  status: 'Pending' | 'In Progress' | 'Completed' | 'Blocked';
+  progressPercent: number; // 0 - 100
+  currentStepMessage: string;
+  assignedTime: string;
+}
+
+export interface WarehouseBox {
+  id: string;
+  boxCode: string;
+  currentLoc: string;
+  status: 'Waiting' | 'Picked' | 'Carried' | 'Placed';
+  weightKg: number;
+}
+
+export interface RoutePoint {
+  x: number;
+  y: number;
+}
+
+export interface NavigationRoutes {
+  plannedPath: RoutePoint[];
+  alternativeRoute: RoutePoint[];
+  blockedRoute: RoutePoint[];
+}
+
+export interface LoadHandlingState {
+  gripperState: 'Idle' | 'Picking' | 'Holding' | 'Placing';
+  boxDetected: boolean;
+  boxId: string | null;
+  weightKg: number;
+  actionStatus: 'Idle' | 'Picking' | 'Carrying' | 'Placing';
+}
+
+export interface WarehouseStats {
+  totalLocations: number;
+  pendingTasks: number;
+  completedTasks: number;
+  activeRobots: number;
+  obstaclesCount: number;
+  freePathsCount: number;
+  blockedPathsCount: number;
+  pickLocationsCount: number;
+  dropLocationsCount: number;
+}
+
 export interface RobotState {
   status: RobotStatus;
   mode: OperatingMode;
@@ -117,6 +205,24 @@ export interface RobotState {
   lastUpdated: string;
   activeWaypoint: { x: number; y: number } | null;
   pathHistory: Array<{ x: number; y: number }>;
+
+  // WAREHOUSE DIGITAL TWIN EXTENSIONS
+  viewMode: '2D' | '3D';
+  layerToggles: {
+    showPaths: boolean;
+    showObstacles: boolean;
+    showTasks: boolean;
+    showZones: boolean;
+  };
+  currentTask: WarehouseTask | null;
+  taskQueue: WarehouseTask[];
+  completedTasks: WarehouseTask[];
+  loadHandling: LoadHandlingState;
+  warehouseStats: WarehouseStats;
+  routes: NavigationRoutes;
+  racks: WarehouseRack[];
+  locations: WarehouseLocation[];
+  obstacles: WarehouseObstacle[];
 }
 
 export interface TelemetryHistoryPoint {

@@ -20,6 +20,15 @@ interface RobotContextType {
   exportCSV: () => void;
   isArchModalOpen: boolean;
   setIsArchModalOpen: (open: boolean) => void;
+
+  // WAREHOUSE DIGITAL TWIN DISPATCHERS
+  injectObstacle: () => void;
+  simulatePick: () => void;
+  simulateDrop: () => void;
+  selectTaskFromQueue: (taskId: string) => void;
+  setViewMode: (mode: '2D' | '3D') => void;
+  toggleLayer: (layer: keyof RobotState['layerToggles']) => void;
+  resetSimulation: () => void;
 }
 
 const RobotContext = createContext<RobotContextType | null>(null);
@@ -83,6 +92,14 @@ export const RobotProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.body.removeChild(link);
   };
 
+  const injectObstacle = () => telemetryService.injectObstacle();
+  const simulatePick = () => telemetryService.simulatePick();
+  const simulateDrop = () => telemetryService.simulateDrop();
+  const selectTaskFromQueue = (id: string) => telemetryService.selectTaskFromQueue(id);
+  const setViewMode = (mode: '2D' | '3D') => telemetryService.setViewMode(mode);
+  const toggleLayer = (layer: keyof RobotState['layerToggles']) => telemetryService.toggleLayer(layer);
+  const resetSimulation = () => telemetryService.resetSimulation();
+
   return (
     <RobotContext.Provider
       value={{
@@ -101,6 +118,13 @@ export const RobotProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         exportCSV,
         isArchModalOpen,
         setIsArchModalOpen,
+        injectObstacle,
+        simulatePick,
+        simulateDrop,
+        selectTaskFromQueue,
+        setViewMode,
+        toggleLayer,
+        resetSimulation
       }}
     >
       {children}

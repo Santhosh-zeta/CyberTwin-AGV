@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRobot, type ActiveTab } from '../../context/RobotContext';
+import { WarehouseStatsWidget } from '../dashboard/WarehouseStatsWidget';
 import { LayoutDashboard, Bot, Activity, Gamepad2, Cpu, Battery, Wifi, ShieldAlert } from 'lucide-react';
 
 interface NavItem {
@@ -11,7 +12,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard, description: 'Main Command Center' },
-  { id: 'digital_twin', label: 'Digital Twin', icon: Bot, description: 'Virtual Robot & 2D Arena' },
+  { id: 'digital_twin', label: 'Digital Twin', icon: Bot, description: 'Warehouse Virtual Arena' },
   { id: 'telemetry', label: 'Telemetry', icon: Activity, description: 'Live Sensor Analytics' },
   { id: 'control', label: 'Control', icon: Gamepad2, description: 'Teleoperation & Mode' },
   { id: 'diagnostics', label: 'Diagnostics', icon: Cpu, description: 'System Health & MQTT' },
@@ -22,7 +23,7 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="w-16 md:w-64 bg-[#080c16]/95 border-r border-slate-800/80 flex flex-col justify-between h-[calc(100vh-4rem)] sticky top-16 select-none shrink-0 z-20 transition-all">
-      <div className="p-2 md:p-3 space-y-1 md:space-y-1.5">
+      <div className="p-2 md:p-3 space-y-1 md:space-y-1.5 overflow-y-auto">
         <div className="px-3 py-2 text-[10px] font-mono uppercase tracking-wider text-slate-500 hidden md:block">
           Navigation Menu
         </div>
@@ -53,6 +54,11 @@ export const Sidebar: React.FC = () => {
             </button>
           );
         })}
+
+        {/* Warehouse Stats Widget inside Sidebar */}
+        <div className="hidden md:block pt-3">
+          <WarehouseStatsWidget state={state} />
+        </div>
       </div>
 
       <div className="p-2 md:p-3 border-t border-slate-800/80 space-y-3 bg-slate-950/40">

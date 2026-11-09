@@ -23,7 +23,7 @@ export const Navbar: React.FC = () => {
               ROBOT DIGITAL TWIN
             </h1>
             <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono font-semibold rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-              v1.0-SIM
+              v1.3-SIM
             </span>
           </div>
           <p className="text-[11px] text-slate-400 font-medium">

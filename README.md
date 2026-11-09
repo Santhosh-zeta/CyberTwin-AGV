@@ -1,8 +1,9 @@
 <div align="center">
-  <h1>🤖 CyberTwin-AGV (v1.2)</h1>
+  <h1>🤖 CyberTwin-AGV (v1.3)</h1>
   <p><strong>An Edge-Based Cyber-Physical Digital Twin Framework for Autonomous Warehouse AGVs</strong></p>
   <p>
-    <img src="https://img.shields.io/badge/Version-1.2--ReactTwin-00f0ff?style=for-the-badge&logo=react" alt="Version 1.2" />
+    <img src="https://img.shields.io/badge/Version-1.3-00f0ff-00f0ff?style=for-the-badge&logo=react" alt="Version 1.3" />
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" />
     <img src="https://img.shields.io/badge/Platform-Raspberry%20Pi%205%20%2B%20ESP32-10b981?style=for-the-badge&logo=raspberrypi" alt="Hardware Platform" />
   </p>
 </div>
@@ -17,7 +18,7 @@ By leveraging an **ESP32** for low-level motor & sensor hardware control and a *
 
 ---
 
-## 🚀 Key Features in v1.2
+## 🚀 Key Features
 
 - **Next-Gen Digital Twin Command Center**: Modern React + TypeScript + Vite + Tailwind CSS dashboard with dark mission-control styling.
 - **Synchronized 2D Virtual Twin & SLAM Grid Arena**:
@@ -59,7 +60,6 @@ The ecosystem is divided into three distinct operational layers:
 CyberTwin-AGV/
 ├── dashboard/               # React + TypeScript Digital Twin UI (Vite App)
 │   ├── src/                 # React components, pages, context & telemetry engine
-│   ├── dist/                # Production compiled static distribution
 │   ├── package.json         # Dashboard dependencies
 │   ├── vite.config.ts       # Vite bundler configuration
 │   └── index.html           # Main HTML entry point
@@ -96,6 +96,7 @@ Open browser at `http://localhost:5173`.
 
 ### 2. Running Full Edge Stack via Docker
 ```bash
+cd dashboard && npm ci && npm run build && cd ..   # backend serves dashboard/dist
 cd raspberry-pi
 docker compose up -d --build
 ```
@@ -106,6 +107,14 @@ Open browser at `http://localhost:8000`.
 ## 📚 Documentation
 For a deep dive into the system's architecture, work division, and precise deployment guides, please review:
 - **[Complete Project Guide (PDF)](documentation/Complete_Project_Guide.pdf)**
+
+## 🔒 Security Note
+The default stack is for local/lab use (anonymous MQTT, open CORS). See [SECURITY.md](SECURITY.md) before exposing it to a network.
+
+## 🤝 Contributing & License
+See [CONTRIBUTING.md](CONTRIBUTING.md). Released under the [MIT License](LICENSE).
+
+**Author:** [Santhosh-zeta](https://github.com/Santhosh-zeta)
 
 ---
 *Built for the future of autonomous embedded systems & smart warehousing.*

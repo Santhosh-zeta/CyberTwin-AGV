@@ -1,7 +1,9 @@
 {
-  "name": "digital-twin",
+  "name": "cybertwin-agv-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.3.0",
+  "license": "MIT",
+  "author": "Santhosh-zeta <iamsanthosh2425@gmail.com>",
   "type": "module",
   "scripts": {
     "dev": "vite",
